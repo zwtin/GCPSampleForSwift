@@ -12,6 +12,13 @@ import Photos
 import RxCocoa
 import RxSwift
 
+enum ImageType: String {
+    case png = "png"
+    case gif = "gif"
+    case jpg = "jpeg"
+    case bmp = "bmp"
+}
+
 class RegisterViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var nameTextField: UITextField!
@@ -21,6 +28,7 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
     var nameText: String = ""
     var ageText: String = ""
     var thumbnailImage: UIImage?
+    var imageType: ImageType = .jpg
     var gesture: UITapGestureRecognizer = UITapGestureRecognizer()
     
     override func viewDidLoad() {
@@ -66,8 +74,6 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
                 self.present(picker, animated: true, completion: nil)
             }
         })
-        self.thumbnailImageView.layer.cornerRadius = 100.0
-        self.thumbnailImageView.layer.masksToBounds = true
         self.thumbnailImageView.isUserInteractionEnabled = true
         self.thumbnailImageView.addGestureRecognizer(gesture)
     }
@@ -77,6 +83,22 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
         self.thumbnailImage = image
         self.thumbnailImageView.contentMode = .scaleAspectFill
         self.thumbnailImageView.image = image
+        if let imageURL = info[.imageURL] as? URL {
+            let ext = imageURL.pathExtension.lowercased()
+            switch ext {
+            case "jpg" , "jpeg":
+                imageType = .jpg
+            case "png":
+                imageType = .png
+            case "gif":
+                imageType = .gif
+            case "bmp":
+                imageType = .bmp
+            default:
+                break
+            }
+        }
+        
         picker.dismiss(animated: true, completion: nil)
     }
     
@@ -105,23 +127,30 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
         self.view.addSubview(indicator)
         indicator.startAnimating()
         
-        let headers: HTTPHeaders = [
-            "Contenttype": "application/json"
-        ]
-        let parameters:[String: Any] = [
-            "name": self.nameText,
-            "age": Int(self.ageText) ?? 0,
-        ]
+        var mimeType = "image/jpeg"
+        var data: Data?
+        switch imageType {
+        case .jpg:
+            data = thumbnailImage?.jpegData(compressionQuality: 1.0)
+            mimeType = "image/jpeg"
+        case .png:
+            data = thumbnailImage?.pngData()
+            mimeType = "image/png"
+        case .gif:
+            return
+        case .bmp:
+            return
+        }
+
+        let dataA = self.nameText.data(using: .utf8)
+        let dataB = self.ageText.data(using: .utf8)
         
-//        Alamofire.request("https://zwtin.com/user", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
-//            .response(completionHandler: {[weak self] response in
-//                indicator.stopAnimating()
-//                indicator.removeFromSuperview()
-//                self?.showAlert()
-//            })
+        
         Alamofire.upload(multipartFormData: { multipartFormData in
-            multipartFormData.append(UIImage(named: "giants.jpg")?.jpegData(compressionQuality: 1.0) ?? Data(), withName: "uploaded", fileName: "giants.jpg", mimeType: "image/jpeg")
-        }, to: "https://zwtin.com/", encodingCompletion: { encodingResult in
+            multipartFormData.append(dataA ?? Data(), withName: "dataA", mimeType: "text/plain")
+            multipartFormData.append(dataB ?? Data(), withName: "dataB", mimeType: "text/plain")
+            multipartFormData.append(data ?? Data(), withName: "uploaded", fileName: "giants.jpg", mimeType: mimeType)
+        }, to: "https://zwtin.com/user", encodingCompletion: { encodingResult in
             switch encodingResult {
             case .success(let upload, _, _):
                 upload.response{ response in
@@ -129,6 +158,9 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
                     let responseData = response
                     print("成功")
                     print(responseData ?? "成功")
+                    indicator.stopAnimating()
+                    indicator.removeFromSuperview()
+                    self.showAlert()
                 }
             case .failure(let encodingError):
                 // 失敗

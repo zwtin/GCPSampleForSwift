@@ -26,7 +26,11 @@ class UserTableViewCell: UITableViewCell {
     }
     
     func setup(info: User) {
-        userImageView.loadImage(from: "https://storage.googleapis.com/hello-world-243909.appspot.com/carp.jpg")
+        if let image = info.image, !image.isEmpty {
+            userImageView.loadImage(from: image)
+        } else {
+            userImageView.image = UIImage(named: "noImage")
+        }
         userNameLabel.text = "ユーザー名：\(info.name ?? "")\n年齢：\(info.age ?? 0)"
     }
 }

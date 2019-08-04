@@ -26,7 +26,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     func getData() {
         Alamofire.request("https://zwtin.com/user", method: .get)
             .response(completionHandler: { response in
-                
+                                
                 let decoder: JSONDecoder = JSONDecoder()
                 do {
                     let array: [User] = try decoder.decode([User].self, from: response.data ?? Data())
@@ -72,4 +72,5 @@ struct User: Codable {
     let deletedAt: String?
     var name: String?
     var age: Int?
+    var image: String?
 }
