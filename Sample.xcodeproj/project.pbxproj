@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B23D20E122DCC8AB003CD0BA /* giants.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B23D20E022DCC8AA003CD0BA /* giants.jpg */; };
 		B23D20E322DF7259003CD0BA /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23D20E222DF7258003CD0BA /* AsyncImageView.swift */; };
 		B24C35A722C91A4F001BA1FA /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24C35A522C91A4F001BA1FA /* UserTableViewCell.swift */; };
 		B24C35A822C91A4F001BA1FA /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B24C35A622C91A4F001BA1FA /* UserTableViewCell.xib */; };
@@ -30,7 +29,6 @@
 /* Begin PBXFileReference section */
 		6915D4E1BF62358EBC2F7428 /* Pods-Sample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sample.release.xcconfig"; path = "Target Support Files/Pods-Sample/Pods-Sample.release.xcconfig"; sourceTree = "<group>"; };
 		96284DE67798AD44F898E488 /* Pods-Sample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sample.debug.xcconfig"; path = "Target Support Files/Pods-Sample/Pods-Sample.debug.xcconfig"; sourceTree = "<group>"; };
-		B23D20E022DCC8AA003CD0BA /* giants.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = giants.jpg; path = ../../giants.jpg; sourceTree = "<group>"; };
 		B23D20E222DF7258003CD0BA /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 		B24C35A522C91A4F001BA1FA /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		B24C35A622C91A4F001BA1FA /* UserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
@@ -101,7 +99,6 @@
 				B2E6099922BEAF4C007E8F0E /* ProfileViewController.xib */,
 				B24C35A522C91A4F001BA1FA /* UserTableViewCell.swift */,
 				B24C35A622C91A4F001BA1FA /* UserTableViewCell.xib */,
-				B23D20E022DCC8AA003CD0BA /* giants.jpg */,
 				B23D20E222DF7258003CD0BA /* AsyncImageView.swift */,
 			);
 			path = Sample;
@@ -190,7 +187,6 @@
 				B2E6099F22BEC34D007E8F0E /* RegisterViewController.xib in Resources */,
 				B2A3879F22A3F5F90028141A /* LaunchScreen.storyboard in Resources */,
 				B2A387A922A3F73D0028141A /* SampleCell.xib in Resources */,
-				B23D20E122DCC8AB003CD0BA /* giants.jpg in Resources */,
 				B2A3879C22A3F5F90028141A /* Assets.xcassets in Resources */,
 				B2A3879A22A3F5F90028141A /* Main.storyboard in Resources */,
 			);
