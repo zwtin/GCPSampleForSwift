@@ -30,7 +30,12 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                 let decoder: JSONDecoder = JSONDecoder()
                 do {
                     let array: [User] = try decoder.decode([User].self, from: response.data ?? Data())
-                    self.data = array
+                    self.data = []
+                    array.forEach({ user in
+                        if user.DeletedAt == nil {
+                            self.data.append(user)
+                        }
+                    })
                     self.userTableView.reloadData()
                 } catch {
                     print("error:", error.localizedDescription)
@@ -57,6 +62,20 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let alert = UIAlertController(title: "確認", message: "このユーザーを削除しますか？", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler:{[weak self] _ in
+            let headers: HTTPHeaders = ["Contenttype": "application/json"]
+            let parameters:[String: Any] = ["id": self?.data[indexPath.row].ID ?? 0]
+            
+            Alamofire.request("https://zwtin.com/user", method: .delete, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+                .response(completionHandler: { [weak self] _ in
+                    self?.getData()
+                })
+        })
+        let noAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+        alert.addAction(okAction)
+        alert.addAction(noAction)
+        self.present(alert, animated: true, completion: nil)
         userTableView.deselectRow(at: indexPath, animated: true)
     }
 }
@@ -66,10 +85,10 @@ struct UserArray: Codable {
 }
 
 struct User: Codable {
-    let id: Int?
-    let createdAt: String?
-    let updatedAt: String?
-    let deletedAt: String?
+    let ID: Int?
+    let CreatedAt: String?
+    let UpdatedAt: String?
+    let DeletedAt: String?
     var name: String?
     var age: Int?
     var image: String?
