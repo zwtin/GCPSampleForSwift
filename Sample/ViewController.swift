@@ -11,7 +11,7 @@ import RxCocoa
 import RxSwift
 import Alamofire
 
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class ViewController: UIBaseViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     var collectionView: UICollectionView?
     @IBOutlet weak var stackView: UIStackView!
@@ -23,8 +23,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
          self.view.backgroundColor = UIColor.lightGray
         
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width:130, height:170)
-        layout.sectionInset = UIEdgeInsets(top: 0,left: 20,bottom: 0,right: 20)
+        layout.itemSize = CGSize(width: 130, height: 170)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 30
 
@@ -50,14 +50,14 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         btn.backgroundColor = UIColor.blue
         self.view.addSubview(btn)
         
-        let _ = btn.rx.tap.subscribe({[weak self] _ in
+        _ = btn.rx.tap.subscribe({[weak self] _ in
             self?.startScreen()
         })
     }
     
     func startScreen() {
-        let vc = GCPTestViewController()
-        let nvc = UINavigationController(rootViewController: vc)
+        let gcpTestViewController = GCPTestViewController()
+        let nvc = UINavigationController(rootViewController: gcpTestViewController)
         
         self.present(nvc, animated: true, completion: nil)
     }
@@ -71,7 +71,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! SampleCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? SampleCell else {
+            return UICollectionViewCell()
+        }
         switch indexPath.row {
         case 0:
             cell.image.image = UIImage(named: "carp")
@@ -104,4 +106,3 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         return cell
     }
 }
-

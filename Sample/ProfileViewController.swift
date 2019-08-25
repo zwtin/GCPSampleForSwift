@@ -9,11 +9,11 @@
 import UIKit
 import Alamofire
 
-class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ProfileViewController: UIBaseViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var userTableView: UITableView!
     var data: [User] = []
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "プロフィール一覧"
@@ -32,9 +32,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                     let array: [User] = try decoder.decode([User].self, from: response.data ?? Data())
                     self.data = []
                     array.forEach({ user in
-                        if user.DeletedAt == nil {
-                            self.data.append(user)
-                        }
+                        self.data.append(user)
                     })
                     self.userTableView.reloadData()
                 } catch {
@@ -48,7 +46,9 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = userTableView.dequeueReusableCell(withIdentifier: "userCell") as! UserTableViewCell
+        guard let cell = userTableView.dequeueReusableCell(withIdentifier: "userCell") as? UserTableViewCell else {
+            return UITableViewCell()
+        }
         cell.setup(info: self.data[indexPath.row])
         return cell
     }
@@ -63,9 +63,9 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let alert = UIAlertController(title: "確認", message: "このユーザーを削除しますか？", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler:{[weak self] _ in
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: {[weak self] _ in
             let headers: HTTPHeaders = ["Contenttype": "application/json"]
-            let parameters:[String: Any] = ["id": self?.data[indexPath.row].ID ?? 0]
+            let parameters: [String: Any] = ["id": self?.data[indexPath.row].identifer ?? 0]
             
             Alamofire.request("https://zwtin.com/user", method: .delete, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
                 .response(completionHandler: { [weak self] _ in
@@ -85,10 +85,10 @@ struct UserArray: Codable {
 }
 
 struct User: Codable {
-    let ID: Int?
-    let CreatedAt: String?
-    let UpdatedAt: String?
-    let DeletedAt: String?
+    let identifer: Int?
+    let createdAt: String?
+    let updatedAt: String?
+    let deletedAt: String?
     var name: String?
     var age: Int?
     var image: String?

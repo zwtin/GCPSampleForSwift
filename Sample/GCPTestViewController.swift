@@ -10,29 +10,41 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class GCPTestViewController: UIViewController {
+class GCPTestViewController: UIBaseViewController {
     @IBOutlet weak var registerBtn: UIButton!
     @IBOutlet weak var profileBtn: UIButton!
+    @IBOutlet weak var chatRoomBtn: UIButton!
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "GCPサンプル"
         
-        let _ = registerBtn.rx.tap.subscribe({[weak self] _ in
+        _ = registerBtn.rx.tap.subscribe({[weak self] _ in
             self?.registerProfile()
-        })
-        let _ = profileBtn.rx.tap.subscribe({[weak self] _ in
+        }).disposed(by: disposeBag)
+        
+        _ = profileBtn.rx.tap.subscribe({[weak self] _ in
             self?.checkMyProfile()
-        })
+        }).disposed(by: disposeBag)
+        
+        _ = chatRoomBtn.rx.tap.subscribe({[weak self] _ in
+            self?.startChatRoom()
+        }).disposed(by: disposeBag)
     }
     
     func registerProfile() {
-        let vc = RegisterViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+        let registerViewController = RegisterViewController()
+        self.navigationController?.pushViewController(registerViewController, animated: true)
     }
     
     func checkMyProfile() {
-        let vc = ProfileViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+        let profileViewController = ProfileViewController()
+        self.navigationController?.pushViewController(profileViewController, animated: true)
+    }
+    
+    func startChatRoom() {
+        let chatRoomViewController = ChatRoomViewController()
+        self.navigationController?.pushViewController(chatRoomViewController, animated: true)
     }
 }

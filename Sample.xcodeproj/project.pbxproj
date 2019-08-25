@@ -17,12 +17,17 @@
 		B2A3879F22A3F5F90028141A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2A3879D22A3F5F90028141A /* LaunchScreen.storyboard */; };
 		B2A387A822A3F73D0028141A /* SampleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A387A622A3F73D0028141A /* SampleCell.swift */; };
 		B2A387A922A3F73D0028141A /* SampleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2A387A722A3F73D0028141A /* SampleCell.xib */; };
+		B2CB401E23086E980004BA88 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B2CB401D23086E980004BA88 /* GoogleService-Info.plist */; };
 		B2E6099622BEA74C007E8F0E /* GCPTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E6099422BEA74C007E8F0E /* GCPTestViewController.swift */; };
 		B2E6099722BEA74C007E8F0E /* GCPTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2E6099522BEA74C007E8F0E /* GCPTestViewController.xib */; };
 		B2E6099A22BEAF4C007E8F0E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E6099822BEAF4C007E8F0E /* ProfileViewController.swift */; };
 		B2E6099B22BEAF4C007E8F0E /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2E6099922BEAF4C007E8F0E /* ProfileViewController.xib */; };
 		B2E6099E22BEC34D007E8F0E /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E6099C22BEC34D007E8F0E /* RegisterViewController.swift */; };
 		B2E6099F22BEC34D007E8F0E /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2E6099D22BEC34D007E8F0E /* RegisterViewController.xib */; };
+		B2ECFDF723089638008D9D0B /* UIBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2ECFDF623089638008D9D0B /* UIBaseViewController.swift */; };
+		B2ECFDFB2309D408008D9D0B /* ChatRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2ECFDF92309D408008D9D0B /* ChatRoomViewController.swift */; };
+		B2ECFDFC2309D408008D9D0B /* ChatRoomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2ECFDFA2309D408008D9D0B /* ChatRoomViewController.xib */; };
+		B2ECFE022310581A008D9D0B /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2ECFE012310581A008D9D0B /* Keyboard.swift */; };
 		F6FF865DD20B10142049BAA5 /* Pods_Sample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F169BAA2A273534FD6055705 /* Pods_Sample.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,12 +46,17 @@
 		B2A387A022A3F5F90028141A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B2A387A622A3F73D0028141A /* SampleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleCell.swift; sourceTree = "<group>"; };
 		B2A387A722A3F73D0028141A /* SampleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SampleCell.xib; sourceTree = "<group>"; };
+		B2CB401D23086E980004BA88 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B2E6099422BEA74C007E8F0E /* GCPTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCPTestViewController.swift; sourceTree = "<group>"; };
 		B2E6099522BEA74C007E8F0E /* GCPTestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GCPTestViewController.xib; sourceTree = "<group>"; };
 		B2E6099822BEAF4C007E8F0E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		B2E6099922BEAF4C007E8F0E /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		B2E6099C22BEC34D007E8F0E /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		B2E6099D22BEC34D007E8F0E /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		B2ECFDF623089638008D9D0B /* UIBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBaseViewController.swift; sourceTree = "<group>"; };
+		B2ECFDF92309D408008D9D0B /* ChatRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomViewController.swift; sourceTree = "<group>"; };
+		B2ECFDFA2309D408008D9D0B /* ChatRoomViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatRoomViewController.xib; sourceTree = "<group>"; };
+		B2ECFE012310581A008D9D0B /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 		F169BAA2A273534FD6055705 /* Pods_Sample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -83,6 +93,8 @@
 		B2A3879322A3F5F90028141A /* Sample */ = {
 			isa = PBXGroup;
 			children = (
+				B2ECFDFE23105375008D9D0B /* Extension */,
+				B2ECFDF82309D3D5008D9D0B /* ChatRoom */,
 				B2A3879422A3F5F90028141A /* AppDelegate.swift */,
 				B2A3879622A3F5F90028141A /* ViewController.swift */,
 				B2A3879822A3F5F90028141A /* Main.storyboard */,
@@ -100,8 +112,27 @@
 				B24C35A522C91A4F001BA1FA /* UserTableViewCell.swift */,
 				B24C35A622C91A4F001BA1FA /* UserTableViewCell.xib */,
 				B23D20E222DF7258003CD0BA /* AsyncImageView.swift */,
+				B2CB401D23086E980004BA88 /* GoogleService-Info.plist */,
+				B2ECFDF623089638008D9D0B /* UIBaseViewController.swift */,
 			);
 			path = Sample;
+			sourceTree = "<group>";
+		};
+		B2ECFDF82309D3D5008D9D0B /* ChatRoom */ = {
+			isa = PBXGroup;
+			children = (
+				B2ECFDF92309D408008D9D0B /* ChatRoomViewController.swift */,
+				B2ECFDFA2309D408008D9D0B /* ChatRoomViewController.xib */,
+			);
+			path = ChatRoom;
+			sourceTree = "<group>";
+		};
+		B2ECFDFE23105375008D9D0B /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				B2ECFE012310581A008D9D0B /* Keyboard.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		B4B298F30F8EAF461D8178BE /* Frameworks */ = {
@@ -133,6 +164,8 @@
 				B2A3878E22A3F5F90028141A /* Frameworks */,
 				B2A3878F22A3F5F90028141A /* Resources */,
 				FAA57B3498BA2B446DD12D28 /* [CP] Embed Pods Frameworks */,
+				B2ECFDF423087253008D9D0B /* ShellScript */,
+				B2ECFDFD23104178008D9D0B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -183,10 +216,12 @@
 			files = (
 				B24C35A822C91A4F001BA1FA /* UserTableViewCell.xib in Resources */,
 				B2E6099B22BEAF4C007E8F0E /* ProfileViewController.xib in Resources */,
+				B2CB401E23086E980004BA88 /* GoogleService-Info.plist in Resources */,
 				B2E6099722BEA74C007E8F0E /* GCPTestViewController.xib in Resources */,
 				B2E6099F22BEC34D007E8F0E /* RegisterViewController.xib in Resources */,
 				B2A3879F22A3F5F90028141A /* LaunchScreen.storyboard in Resources */,
 				B2A387A922A3F73D0028141A /* SampleCell.xib in Resources */,
+				B2ECFDFC2309D408008D9D0B /* ChatRoomViewController.xib in Resources */,
 				B2A3879C22A3F5F90028141A /* Assets.xcassets in Resources */,
 				B2A3879A22A3F5F90028141A /* Main.storyboard in Resources */,
 			);
@@ -217,6 +252,41 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B2ECFDF423087253008D9D0B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/Fabric/run\"\n";
+		};
+		B2ECFDFD23104178008D9D0B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
 		FAA57B3498BA2B446DD12D28 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -244,9 +314,12 @@
 				B2A3879722A3F5F90028141A /* ViewController.swift in Sources */,
 				B2A3879522A3F5F90028141A /* AppDelegate.swift in Sources */,
 				B24C35A722C91A4F001BA1FA /* UserTableViewCell.swift in Sources */,
+				B2ECFE022310581A008D9D0B /* Keyboard.swift in Sources */,
 				B23D20E322DF7259003CD0BA /* AsyncImageView.swift in Sources */,
+				B2ECFDF723089638008D9D0B /* UIBaseViewController.swift in Sources */,
 				B2E6099A22BEAF4C007E8F0E /* ProfileViewController.swift in Sources */,
 				B2E6099E22BEC34D007E8F0E /* RegisterViewController.swift in Sources */,
+				B2ECFDFB2309D408008D9D0B /* ChatRoomViewController.swift in Sources */,
 				B2A387A822A3F73D0028141A /* SampleCell.swift in Sources */,
 				B2E6099622BEA74C007E8F0E /* GCPTestViewController.swift in Sources */,
 			);
@@ -400,6 +473,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				INFOPLIST_FILE = Sample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -6,4 +6,10 @@ target 'Sample' do
     pod 'RxSwift'
     pod 'RxCocoa'
     pod 'Alamofire'
+    pod 'Firebase/Analytics'
+    pod 'Fabric'
+    pod 'Crashlytics'
+    pod 'SwiftFormat/CLI'
+    pod 'SwiftLint'
+    pod 'Toast-Swift'
 end

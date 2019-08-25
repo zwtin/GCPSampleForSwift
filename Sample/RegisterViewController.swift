@@ -19,7 +19,7 @@ enum ImageType: String {
     case bmp = "bmp"
 }
 
-class RegisterViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class RegisterViewController: UIBaseViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var ageTextField: UITextField!
@@ -31,18 +31,21 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
     var imageType: ImageType = .jpg
     var gesture: UITapGestureRecognizer = UITapGestureRecognizer()
     
+    let disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupNavigationBar()
-        let _ = self.nameTextField.rx.text.subscribe(onNext: { [weak self] text in
+        _ = self.nameTextField.rx.text.subscribe(onNext: { [weak self] text in
             self?.nameText = text ?? ""
-        })
+        }).disposed(by: disposeBag)
+        
         self.ageTextField.keyboardType = .numberPad
-        let _ = self.ageTextField.rx.text.subscribe(onNext: { [weak self] text in
+        _ = self.ageTextField.rx.text.subscribe(onNext: { [weak self] text in
             self?.ageText = text ?? ""
-        })
+        }).disposed(by: disposeBag)
  
-        let _ = gesture.rx.event.subscribe(onNext: { _ in
+        _ = gesture.rx.event.subscribe(onNext: { _ in
             if PHPhotoLibrary.authorizationStatus() != .authorized {
                 PHPhotoLibrary.requestAuthorization { status in
                     if status == .authorized {
@@ -73,12 +76,13 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
                 picker.delegate = self
                 self.present(picker, animated: true, completion: nil)
             }
-        })
+        }).disposed(by: disposeBag)
+        
         self.thumbnailImageView.isUserInteractionEnabled = true
         self.thumbnailImageView.addGestureRecognizer(gesture)
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         let image = info[.originalImage] as? UIImage
         self.thumbnailImage = image
         self.thumbnailImageView.contentMode = .scaleAspectFill
@@ -86,7 +90,7 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
         if let imageURL = info[.imageURL] as? URL {
             let ext = imageURL.pathExtension.lowercased()
             switch ext {
-            case "jpg" , "jpeg":
+            case "jpg", "jpeg":
                 imageType = .jpg
             case "png":
                 imageType = .png
@@ -106,12 +110,11 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
         self.navigationItem.title = "プロフィール登録"
         let rightButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: nil)
         self.navigationItem.setRightBarButtonItems([rightButton], animated: true)
-        let _ = rightButton.rx.tap.subscribe({[weak self] _ in
+        _ = rightButton.rx.tap.subscribe(onNext: {[weak self] _ in
             self?.registerUser()
-        })
+        }).disposed(by: disposeBag)
     }
     
-
     func registerUser() {
         if self.nameText.isEmpty {
             self.showError()
@@ -145,7 +148,6 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
         let dataA = self.nameText.data(using: .utf8)
         let dataB = self.ageText.data(using: .utf8)
         
-        
         Alamofire.upload(multipartFormData: { multipartFormData in
             multipartFormData.append(dataA ?? Data(), withName: "dataA", mimeType: "text/plain")
             multipartFormData.append(dataB ?? Data(), withName: "dataB", mimeType: "text/plain")
@@ -153,11 +155,8 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
         }, to: "https://zwtin.com/user", encodingCompletion: { encodingResult in
             switch encodingResult {
             case .success(let upload, _, _):
-                upload.response{ response in
+                upload.response { _ in
                     // 成功
-                    let responseData = response
-                    print("成功")
-                    print(responseData ?? "成功")
                     indicator.stopAnimating()
                     indicator.removeFromSuperview()
                     self.showAlert()
@@ -172,7 +171,7 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
     
     func showAlert() {
         let alert = UIAlertController(title: "登録完了", message: "アカウントの登録に成功しました", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler:{[weak self] _ in
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: {[weak self] _ in
             self?.navigationController?.popViewController(animated: true)
         })
         alert.addAction(okAction)
