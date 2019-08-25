@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B23B93A72312BAD800F3E5A7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B23B93A62312BAD800F3E5A7 /* GoogleService-Info.plist */; };
 		B23D20E322DF7259003CD0BA /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23D20E222DF7258003CD0BA /* AsyncImageView.swift */; };
 		B24C35A722C91A4F001BA1FA /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24C35A522C91A4F001BA1FA /* UserTableViewCell.swift */; };
 		B24C35A822C91A4F001BA1FA /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B24C35A622C91A4F001BA1FA /* UserTableViewCell.xib */; };
@@ -34,6 +35,7 @@
 /* Begin PBXFileReference section */
 		6915D4E1BF62358EBC2F7428 /* Pods-Sample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sample.release.xcconfig"; path = "Target Support Files/Pods-Sample/Pods-Sample.release.xcconfig"; sourceTree = "<group>"; };
 		96284DE67798AD44F898E488 /* Pods-Sample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sample.debug.xcconfig"; path = "Target Support Files/Pods-Sample/Pods-Sample.debug.xcconfig"; sourceTree = "<group>"; };
+		B23B93A62312BAD800F3E5A7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B23D20E222DF7258003CD0BA /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 		B24C35A522C91A4F001BA1FA /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		B24C35A622C91A4F001BA1FA /* UserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				B2A3879B22A3F5F90028141A /* Assets.xcassets */,
 				B2A3879D22A3F5F90028141A /* LaunchScreen.storyboard */,
 				B2A387A022A3F5F90028141A /* Info.plist */,
+				B23B93A62312BAD800F3E5A7 /* GoogleService-Info.plist */,
 				B2A387A622A3F73D0028141A /* SampleCell.swift */,
 				B2A387A722A3F73D0028141A /* SampleCell.xib */,
 				B2E6099422BEA74C007E8F0E /* GCPTestViewController.swift */,
@@ -222,6 +225,7 @@
 				B2A3879F22A3F5F90028141A /* LaunchScreen.storyboard in Resources */,
 				B2A387A922A3F73D0028141A /* SampleCell.xib in Resources */,
 				B2ECFDFC2309D408008D9D0B /* ChatRoomViewController.xib in Resources */,
+				B23B93A72312BAD800F3E5A7 /* GoogleService-Info.plist in Resources */,
 				B2A3879C22A3F5F90028141A /* Assets.xcassets in Resources */,
 				B2A3879A22A3F5F90028141A /* Main.storyboard in Resources */,
 			);
