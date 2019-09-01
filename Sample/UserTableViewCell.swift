@@ -2,8 +2,8 @@
 //  UserTableViewCell.swift
 //  Sample
 //
-//  Created by 池沢将人 on 2019/07/01.
-//  Copyright © 2019 池沢将人. All rights reserved.
+//  Created by zwtin on 2019/07/01.
+//  Copyright © 2019 zwtin. All rights reserved.
 //
 
 import UIKit

@@ -2,8 +2,8 @@
 //  RegisterViewController.swift
 //  Sample
 //
-//  Created by 池沢将人 on 2019/06/23.
-//  Copyright © 2019 池沢将人. All rights reserved.
+//  Created by zwtin on 2019/06/23.
+//  Copyright © 2019 zwtin. All rights reserved.
 //
 
 import UIKit
@@ -87,6 +87,7 @@ class RegisterViewController: UIBaseViewController, UIImagePickerControllerDeleg
         self.thumbnailImage = image
         self.thumbnailImageView.contentMode = .scaleAspectFill
         self.thumbnailImageView.image = image
+        
         if let imageURL = info[.imageURL] as? URL {
             let ext = imageURL.pathExtension.lowercased()
             switch ext {
